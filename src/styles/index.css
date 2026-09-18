@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme palettes exposed as CSS variables (space-separated RGB channels so
+   Tailwind's `rgb(var(--x) / <alpha-value>)` works with opacity utilities). */
+:root,
+body.theme-black-snail {
+  /* Black Snail: bg #2F2F30 (dark grey), text/main #F1E9D6 (cream), sub derived warm mid-grey */
+  --color-bg: 47 47 48;
+  --color-main: 241 233 214;
+  --color-sub: 125 121 114;
+  --color-text: 241 233 214;
+  --color-error: 194 68 46;
+}
+body.theme-norse {
+  /* GMK Norse palette:
+     alpha  = BV (#10262f)          → bg
+     mod    = RAL 220 20 20         → sub (lifted for legibility)
+     legend = L9 (#d8d2c3)          → text + main (accent cap color)
+     accent legend U9 (#aca693) reserved for future use */
+  --color-bg: 16 38 47;
+  --color-main: 216 210 195;
+  --color-sub: 82 112 128;
+  --color-text: 216 210 195;
+  --color-error: 194 68 46;
+}
+body.theme-dolch {
+  /* GMK Dolch-style: bg #3E4040 (darkest), sub #64625C (mid warm grey), legend #E6E6E1 */
+  --color-bg: 62 64 64;
+  --color-main: 230 230 225;
+  --color-sub: 100 98 92;
+  --color-text: 230 230 225;
+  --color-error: 194 68 46;
+}
+body.theme-blot {
+  /* Blot: bg #5E0B19 (deep burgundy), text/main #FFFDF5 (cream), sub derived muted mauve */
+  --color-bg: 94 11 25;
+  --color-main: 255 253 245;
+  --color-sub: 144 61 75;
+  --color-text: 255 253 245;
+  --color-error: 230 168 96;
+}
+body.theme-metropolis {
+  /* Metropolis: bg #282F38 (dark blue-grey), text/main #00DFBA (teal), sub derived muted teal-grey */
+  --color-bg: 40 47 56;
+  --color-main: 0 223 186;
+  --color-sub: 75 100 108;
+  --color-text: 0 223 186;
+  --color-error: 194 68 46;
+}
+body.theme-fright-club {
+  /* Fright Club: bg #858A89 (warm grey), text/main #B4FCDF (pale mint), sub derived mint-grey */
+  --color-bg: 133 138 137;
+  --color-main: 180 252 223;
+  --color-sub: 152 184 171;
+  --color-text: 180 252 223;
+  --color-error: 194 68 46;
+}
+body.theme-rudy {
+  /* Rudy: bg #110A52 (deep indigo), text/main #EDEAE2 (cream), sub derived muted purple-slate */
+  --color-bg: 17 10 82;
+  --color-main: 237 234 226;
+  --color-sub: 105 100 140;
+  --color-text: 237 234 226;
+  --color-error: 230 168 96;
+}
+body.theme-inukuma {
+  /* Inukuma: bg #1D242A (dark blue-grey), text/main #CAB58F (warm khaki), sub derived warm brown-grey */
+  --color-bg: 29 36 42;
+  --color-main: 202 181 143;
+  --color-sub: 98 94 82;
+  --color-text: 202 181 143;
+  --color-error: 194 68 46;
+}
+body.theme-olivia {
+  /* Olivia: bg #2B2A28 (dark warm grey), text/main #DDA791 (dusty peach), sub derived warm brown */
+  --color-bg: 43 42 40;
+  --color-main: 221 167 145;
+  --color-sub: 114 92 82;
+  --color-text: 221 167 145;
+  --color-error: 194 68 46;
+}
+
+body.theme-nerve {
+  /* Nerve: bg #AEAFAB (warm light grey), text/main #550086 (deep purple), sub derived mid purple-grey */
+  --color-bg: 174 175 171;
+  --color-main: 85 0 134;
+  --color-sub: 138 105 156;
+  --color-text: 85 0 134;
+  --color-error: 194 68 46;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-bg text-text font-mono;
+}
+
+/* screen-blend recording mode: pure black bg so DaVinci Screen blend removes it */
+body.screen-mode {
+  background-color: #000 !important;
+}
+
+/* caret blink */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.caret {
+  animation: blink 1s step-end infinite;
+}
+
+/* GitHub corner ribbon (octocat) — arm waves on hover.
+   The <a> uses currentColor for the triangle, and --octo-body-fill for the
+   octocat body/arm so the body reads against the theme bg. */
+.github-corner {
+  --octo-body-fill: rgb(var(--color-bg));
+}
+.github-corner .octo-arm {
+  transform-origin: 130px 106px;
+}
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out infinite;
+}
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+

@@ -1,0 +1,1 @@
+Limiter:kneeWidthDb="3.7" lookaheadMs="1" makeupTargetDb="-1" releaseMs="71.8" showActual="1" showInput="0" showOutput="1" showTarget="0" thresholdDb="-6"
