@@ -259,7 +259,7 @@ export default function App() {
     <div className="min-h-full flex flex-col">
       {!screenMode && (
         <a
-          href="https://github.com/jiyoyupat/meowtype-v2"
+          href="https://github.com/jiyoyupat/meowtype"
           target="_blank"
           rel="noopener noreferrer"
           className="github-corner fixed top-0 right-0 z-40 text-main hover:text-text transition-colors"
